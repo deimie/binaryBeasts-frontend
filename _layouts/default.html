@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <style>
+      img {
+        box-shadow: 10px 5px 5px lightgray;
+      }
+    </style>
+
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
@@ -25,6 +31,7 @@
 
         {% if site.github.is_project_page %}
         <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
+        <img src="/images/Angela_Tye_Alaska_2018.jpg">
         {% endif %}
 
         {% if site.github.is_user_page %}
