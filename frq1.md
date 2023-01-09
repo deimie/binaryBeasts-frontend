@@ -1,17 +1,18 @@
 ### FRQ 1
 
 <div class="box-shadow">
-      <p>
-        Before paying to learn programming, checkout freeCodeCamp.org
-        <br />
-        The HTML, CSS, and JavaScript curricula would take you from zero to hero
-        in web development.
-      </p>
-      <p>
-        There is a Python curriculum that will get you a considerable knowledge
-        in Python <br />
-        And an upcoming Data Science curriculum.
-      </p>
+  <div class="row">
+        <div class="column">
+  <form action="/action_page.php">
+    <label for="calendar">Input a Date:</label>
+    <input type="date" id="calendar" name="calendar">
+    <input type="submit">
+  </form>
+  </div>
+  <div class="column">
+  <br>
+  <p>Is this a Leap Year? <br>What is the first day of the year?<br>What day of the year is it?<br>What day of the week is it?</p>
+  </div>
 </div>
 <style>
     .box-shadow {
@@ -21,6 +22,15 @@
         border-radius: 4px;
         box-shadow: 10px 5px 5px rgb(11, 67, 198);
         }
+    .column {
+    float: left;
+    width: 50%;
+    }
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
 </style>
 
 <!-- Script is layed out in a sequence (without a function) and will execute when page is loaded -->
