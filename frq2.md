@@ -2,8 +2,19 @@
 
 ### Person Database 
 
+<style>
+    .box-shadow {
+        background-color: #A594F9;
+        color: #F5EFFF;
+        padding: 10px;
+        border-radius: 4px;
+        box-shadow: 10px 5px 5px rgb(11, 67, 198);
+        }
+</style>
+
+
 <!-- HTML table fragment for page -->
-<table>
+<table class="box-shadow">
   <thead>
   <tr>
     <th>Name</th>
@@ -21,7 +32,7 @@
   const resultContainer = document.getElementById("result");
 
   // prepare fetch options
-  const url = "https://flockhub.nighthawkcoding.ml/api/person/";
+  const url = "http://spiderbiters.nighthawkcodingsociety.com/api/person/";
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
