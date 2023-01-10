@@ -19,7 +19,7 @@
   const resultContainer = document.getElementById("result");
 
   // prepare fetch options
-  const url = "http://spiderbiters.nighthawkcodingsociety.com/api/person/";
+  const url = "binarybeasts.nighthawkcoding.ml";
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
