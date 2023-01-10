@@ -56,7 +56,7 @@ const init = () => {
       isLeapYear.innerText = data.isLeapYear;
     });
 
-    fetch(`https://spiderbiters.nighthawkcodingsociety.com/api/calendar/firstDayOfTheYear/${input.value}`)
+    fetch(`https://binarybeasts.nighthawkcoding.ml/api/calendar/firstDayOfTheYear/${input.value}`)
     .then(response => response.json())
     .then(data => {
       const firstDayOfTheYear = document.querySelector('p#firstDayOfTheYear');
