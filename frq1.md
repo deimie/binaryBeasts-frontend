@@ -56,28 +56,9 @@ const init = () => {
       isLeapYear.innerText = data.isLeapYear;
     });
 
-  });
-}
-
-const initt = () => {
-  const inputForm = document.querySelector('form')
-
-  inputForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const input = document.querySelector('input#calendar');
-  
-    fetch(`https://spiderbiters.nighthawkcodingsociety.com/api/calendar/firstDayOfTheYear/${input.value}`)
-    .then(response => response.json())
-    .then(data => {
-      const firstDayOfTheYear = document.querySelector('p#firstDayOfTheYear');
-
-      firstDayOfTheYear.innerText = data.firstDayOfTheYear;
-    });
-
 
   });
 }
 
 document.addEventListener('DOMContentLoaded', init);
-document.addEventListener('DOMContentLoaded', initt);
 </script>
