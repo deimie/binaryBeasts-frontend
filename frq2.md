@@ -1,14 +1,12 @@
-### FRQ 2
-
 ### Person Database 
 
 <style>
     .box-shadow {
-        background-color: #A594F9;
+        background-color: #6598f0;
         color: #F5EFFF;
         padding: 10px;
         border-radius: 4px;
-        box-shadow: 10px 5px 5px rgb(11, 67, 198);
+        box-shadow: 10px 5px 5px #92b9fc;
         }
 </style>
 
@@ -19,6 +17,8 @@
   <tr>
     <th>Name</th>
     <th>DOB</th>
+    <th>Height</th>
+    <th>Weight</th>
   </tr>
   </thead>
   <tbody id="result">
@@ -32,7 +32,7 @@
   const resultContainer = document.getElementById("result");
 
   // prepare fetch options
-  const url = "http://spiderbiters.nighthawkcodingsociety.com/api/person/";
+  const url = "https://binarybeasts.nighthawkcoding.ml/api/person/";
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
@@ -67,14 +67,20 @@
             const tr = document.createElement("tr");
             const name = document.createElement("td");
             const dob = document.createElement("td");
+            const height = document.createElement("td");
+            const weight = document.createElement("td");
       
             // data is specific to the API
             name.innerHTML = row.name; 
             dob.innerHTML = row.dob; 
+            height.innerHTML = row.height;
+            weight.innerHTML = row.weight;
 
             // this build td's into tr
             tr.appendChild(name);
             tr.appendChild(dob);
+            tr.appendChild(height);
+            tr.appendChild(weight);
            
 
             // add HTML to container
