@@ -5,19 +5,20 @@
         <div class="column">
   <form>
     <label for="calendar">Input a Year:</label>
-    <input id="calendar" type="text" placeholder="Input a year">
+    <input id="calendar" type="text" placeholder="Input a year"> <br>
+    <label for="calendar2">Input a Month:</label>
+    <input id="calendar2" type="text" placeholder="Input a month"> <br>
+    <label for="calendar3">Input a Day:</label>
+    <input id="calendar3" type="text" placeholder="Input a day"> <br>
     <input type="submit">
   </form>
   </div>
   <div class="column">
   <br>
   <p>Is this a Leap Year? </p> <p id="isLeapYear"></p> <br>
-  <p>What is the first day of the year? </p> <p id="firstDayOfTheYear"></p> <br> <p>What day of the year is it?<br>What day of the week is it?</p>
-  <table>
-    <tbody id="result">
-    <!-- javascript generated data -->
-    </tbody>
-  </table>
+  <p>What is the first day of the year? </p> <p id="firstDayOfYear"></p> <br> 
+  <p>What day of the year is it?</p> <p id="dayOfYear"></p><br>
+  <p>What day of the week is it?</p> <p id=""></p>
   </div>
 </div>
 <style>
@@ -47,6 +48,8 @@ const init = () => {
   inputForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const input = document.querySelector('input#calendar');
+    const input2 = document.querySelector('input#calendar2');
+    const input3 = document.querySelector('input#calendar3');
   
     fetch(`https://binarybeasts.nighthawkcoding.ml/api/calendar/isLeapYear/${input.value}`)
     .then(response => response.json())
@@ -56,6 +59,21 @@ const init = () => {
       isLeapYear.innerText = data.isLeapYear;
     });
 
+    fetch(`https://binarybeasts.nighthawkcoding.ml/api/calendar/firstDayOfYear/${input.value}`)
+    .then(response => response.json())
+    .then(data => {
+      const firstDayOfYear = document.querySelector('p#firstDayOfYear');
+
+      firstDayOfYear.innerText = data.firstDayOfYear;
+    });
+
+    fetch(`https://binarybeasts.nighthawkcoding.ml/api/calendar/dayOfYear/${input2.value}/${input3.value}/${input.value}`)
+    .then(response => response.json())
+    .then(data => {
+      const dayOfYear = document.querySelector('p#dayOfYear');
+
+      dayOfYear.innerText = data.dayOfYear;
+    });
 
   });
 }
