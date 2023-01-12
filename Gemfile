@@ -2,6 +2,6 @@
 
 source "https://rubygems.org"
 
-ruby "2.7.7"
+ruby "2.6.8"
 
 gem "github-pages", group: :jekyll_plugins
