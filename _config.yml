@@ -1,11 +1,9 @@
 # Site settings
-title: W Rizz
-email: your-email@domain.com
-url: https://github.com/jeromelachaud/freelancer-theme
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
-keywords: "your keywords, separated by commas"
-skills: "Web Developer - Graphic Artist - User Experience Designer"
-meta_author: LastName FirstName
+title: Friendlee
+url: https://github.com/deimie/binaryBeasts-frontend
+description: "A site for finding friends."
+keywords: "friends, lonely, binarybeasts"
+meta_author: Binary Beasts
 
 # Google webmaster tools
 google_verify:
@@ -25,38 +23,27 @@ disqus_shortname: myshortname
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
-  primary: 18bc9c #80B3FF
-  primary-rgb: "24,288,156" #"128,179,255"
-  secondary: 2c3e50 #FD6E8A
-  secondary-dark: 233140 #A2122F
+  primary: FFB0B0 #80B3FF
+  primary-rgb: "255, 176, 176" #"128,179,255"
+  secondary: FF8086 #FD6E8A
+  secondary-dark: FF5757 #A2122F
 
 # Footer settings
 footer:
-  copyright: Dr. Henry Jekyll
-  location: Location
-  social: Around the Web
+  copyright: Binary Beasts
+  location: Nighthawk Lane, San Diego, CA 92127
+  social: Our Links
   credits: Credits
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: twitter
-    url: http://twitter.com/jekyllrb
-  - title: facebook
-    url:
-  - title: stack-overflow
-    url: http://stackoverflow.com/questions/tagged/jekyll
-  - title: bitbucket
-    url: http://bitbucket.org/jekyll
+    url: http://twitter.com/nighthawkcoding
   - title: github
-    url: http://github.com/jekyll
-
-# Postal address (add as many lines as necessary)
-address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
+    url: https://github.com/deimie/binaryBeasts-frontend
 
 # Credits content
-credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+credits: 'This page was made by the Binary Beasts CSA team.'
 
 # Build settings
 markdown: kramdown
