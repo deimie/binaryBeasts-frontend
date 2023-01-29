@@ -1,0 +1,8 @@
+---
+layout: default
+modal-id: 2
+date: 2014-07-17
+img: friends3.PNG
+alt: image-alt
+description: Welcome to Friendlee. Each of the boxes contains different qualities and traits in a good friend. Every person prefers different chracteristics in their friends and the rest of the buttons are used for you to select someone with your ideals qualities in a friend. 
+---

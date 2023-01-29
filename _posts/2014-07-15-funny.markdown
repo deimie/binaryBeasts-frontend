@@ -1,0 +1,8 @@
+---
+layout: default
+modal-id: 4
+date: 2014-07-15
+img: funny.PNG
+alt: image-alt
+description: Many people value good humor in a friendship. It is easy to get along with people you can joke with and people that can make you laugh even in the toughest moments.
+---
