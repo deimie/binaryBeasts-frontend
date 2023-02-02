@@ -7,7 +7,6 @@
  *
  * http://ReactiveRaven.github.com/jqBootstrapValidation/
  */
-
 (function( $ ){
 
 	var createdElements = [];
@@ -106,7 +105,7 @@
             //                                                   PATTERN
             // ---------------------------------------------------------
             if ($this.attr("pattern") !== undefined) {
-              message = "Not in the expected format<!-- data-validation-pattern-message to override -->";
+              message = "Required: 8+ characters, at least one number, lowercase, and uppercase. <!-- data-validation-pattern-message to override -->";
               if ($this.data("validationPatternMessage")) {
                 message = $this.data("validationPatternMessage");
               }
@@ -785,14 +784,14 @@
 			email: {
 				name: "Email",
 				type: "shortcut",
-				shortcut: "validemail"
+				shortcut: "validemail"                                                                                                                                                                                                                                                                                                                                                                                                                                
 			},
 			validemail: {
 				name: "Validemail",
 				type: "regex",
 				regex: "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\.[A-Za-z]{2,4}",
 				message: "Not a valid email address<!-- data-validation-validemail-message to override -->"
-			},
+			}, 
 			passwordagain: {
 				name: "Passwordagain",
 				type: "match",

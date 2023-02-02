@@ -9,11 +9,10 @@
   {% include about.html %}
  
   {% if site.contact == "static" %}
-  {% include contact_static.html %}
-  {% elsif site.contact == "disqus" %}
-  {% include contact_disqus.html %}
+  {% include login_static.html %}
+  {% include signup_static.html %}
   {% else %}
-  {% include contact.html %}
+  {% include login.html %}
   {% endif %}
 
   {% include footer.html %}
