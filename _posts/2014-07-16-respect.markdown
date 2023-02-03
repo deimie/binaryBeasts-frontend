@@ -2,7 +2,7 @@
 layout: default
 modal-id: 3
 date: 2014-07-16
-img: respect.PNG
+img: topright.PNG
 alt: image-alt
 description: Some value respect within their friends. Respetful friends understand you and your boundaries while also maintaining a healthy relationship.
 ---

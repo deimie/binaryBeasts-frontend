@@ -2,7 +2,7 @@
 layout: default
 modal-id: 5
 date: 2014-07-14
-img: honesty.PNG
+img: bottomright.PNG
 alt: image-alt
-description: Honesty is a popular friendship trait. People are drawn to others that are able to be honest and tell the truth so that they are able to trust their friends and their opinions. 
+description: Honesty is a popular friendship trait. People are drawn to others that are able to be honest and tell the truth so that they are able to trust their friends and their opinions.
 ---

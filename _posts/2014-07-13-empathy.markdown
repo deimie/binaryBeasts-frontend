@@ -2,7 +2,7 @@
 layout: default
 modal-id: 6
 date: 2014-07-15
-img: empathy.PNG
+img: bottom.PNG
 alt: image-alt
 description: Empathy is important to any relationship. Friends who are able to put themselves into others' shoes and share their feelings are the best of friends.
 ---
