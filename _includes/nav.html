@@ -19,13 +19,16 @@
           <a href="#page-top"></a>
         </li>
         <li class="page-scroll">
+          <a href="{{site.url}}/friends/findFriends">Find Friends</a>
+        </li>
+        <li class="page-scroll">
           <a href="#portfolio">Characteristics</a>
         </li>
         <li class="page-scroll">
           <a href="#about">About</a>
         </li>
         <li class="page-scroll">
-          <a href="#login">Login/Sign Up</a>
+          <a onclick="redirect();">Login/Sign Up</a>
 
         </li>
       </ul>
@@ -34,3 +37,11 @@
   </div>
   <!-- /.container-fluid -->
 </nav>
+
+<script>
+
+  function redirect() {
+    window.location.href = "#login";
+  }
+
+</script>
