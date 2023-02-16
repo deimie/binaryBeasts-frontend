@@ -4,9 +4,12 @@
     <div class="container portfolio-flex-grid">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <div class=fuck>
+          <div class=card>
             <img src="/img/profilePic.png">
-            <h2>Chris</h2>
+            <h2 class="cardText cardHead"><b>Chris,</b> 19</h2>
+            <h3 class="cardText cardBio"> Computer Science Major </h3>
+            <h3 class="cardText cardTraits"> Bird Watching, Lasagna, Overwatch </h3>
+            <h3 class="cardText cardTraits"> Showers, Going Outside, Lettuce</h3>
           </div>
         </div>
       </div>
@@ -21,13 +24,30 @@
     padding: 10px;
 
   }
-  .fuck {
-    background-color: #{{ site.color.primary }};
+  .card {
+    background-color: #{{ site.color.primary }}; 
     width: 55%; 
     margin: auto;
     padding: 13px;
     height: 650px;
     border-radius:10px;
     text-align: left;
+  }
+
+  .cardText {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    font-weight: normal;
+    text-transform:none;
+  }
+  .cardHead {
+    color: #1B4F11;
+  }
+  
+  .cardBio {
+    color:#969696;
+  }
+
+  .cardTraits {
+    color: #000000;
   }
 </style>
