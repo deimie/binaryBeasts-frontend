@@ -16,7 +16,7 @@
           <div class="row control-group">
             <div class="form-group col-xs-12 floating-label-form-group controls">
               <label for="name">Name</label>
-              <input type="text" name="name" class="form-control" placeholder="Name" id="name" required
+              <input type="text" name="name" class="form-control" placeholder="Name" id="nm" required
                 data-validation-required-message="Please enter your name.">
               <p class="help-block text-danger"></p>
             </div>
@@ -65,13 +65,14 @@
 </section>
 
 <script>
-const url = "https://binarybeasts.nighthawkcoding.ml";
+//const url = "https://binarybeasts.nighthawkcoding.ml";
+const url = "https://localhost:8085"
 const create_fetch = url + '/api/person/post';
 
 function create_user(){
   const body = {
     email: document.getElementById("em").value,
-    name: document.getElementById("name").value,
+    name: document.getElementById("nm").value,
     password: document.getElementById("psw").value
   };
   const requestOptions = {
@@ -101,5 +102,5 @@ function create_user(){
       })
     })
 }
-
+//
 </script>
