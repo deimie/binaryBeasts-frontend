@@ -1,0 +1,42 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/base}" lang="en">
+<style>
+        {% include css/bootstrap.min.css %}
+        {% include css/main.css %}   
+
+        table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-size: 20px;
+}
+
+tr:nth-child(even) {
+  color: #fff;
+  background-color: #{{ site.color.primary }};
+
+  
+}
+</style>
+
+{% include head.html %}
+<body id="page-top" class="index">
+  {% include nav.html %} 
+
+  {% include persontable.html %}
+  {% include footer.html %}
+  {% include modals.html %}
+  {% include js.html %}
+</body>
+
+
+
+</html>

@@ -1,0 +1,123 @@
+<section id="cards">
+<br>
+    <div class="container portfolio-flex-grid">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+            <table>
+                <thead>
+                <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                </tr>
+                </thead>
+                <tbody id="result">
+                <!-- javascript generated data -->
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+</section>
+
+<script>
+const resultContainer = document.getElementById("result");
+
+const url = "http://localhost:8197/api/person/all";
+const get_url = url + "/";
+
+  // prepare fetch GET options
+const options = {
+  method: 'GET', // *GET, POST, PUT, DELETE, etc.
+  mode: 'cors', // no-cors, *cors, same-origin
+  cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+  credentials: 'same-origin', // include, same-origin, omit
+  headers: {
+    'Content-Type': 'application/json'
+    // 'Content-Type': 'application/x-www-form-urlencoded',
+  },
+};
+// prepare fetch PUT options, clones with JS Spread Operator (...)
+const post_options = {...options,
+  method: 'POST',
+  mode: 'cors', // no-cors, *cors, same-origin
+}; // clones and replaces method
+
+// fetch the API
+// fetch the API
+fetch(get_url, options)
+  // response is a RESTful "promise" on any successful fetch
+  .then(response => {
+    // check for response errors
+    if (response.status !== 200) {
+        error('GET API response failure: ' + response.status);
+        return;
+    }
+    // valid response will have JSON data
+    response.json().then(data => {
+        console.log(data);
+        for (const row of data) {
+          // make "tr element" for each "row of data"
+          const tr = document.createElement("tr");
+          
+          // td for quote cell
+          const name = document.createElement("td");
+            name.innerHTML = row.name; // add fetched data to innerHTML
+
+          // td for author cell with onclick actions
+          const email = document.createElement("td");
+            email.innerHTML =  row.email;  // add fetched data to innerHTML
+
+          // td for topic cell with onclick actions
+          const id = document.createElement("td");
+            id.innerHTML = row.id;
+          // this builds ALL td's (cells) into tr (row) element
+          // this builds ALL td's (cells) into tr (row) element
+          tr.appendChild(id);
+          tr.appendChild(name);
+          tr.appendChild(email);
+
+          // this adds all the tr (row) work above to the HTML "result" container
+          resultContainer.appendChild(tr);
+        }
+        
+    })
+})
+// catch fetch errors (ie Nginx ACCESS to server blocked)
+.catch(err => {
+  error(err + ": " + get_url);
+});
+
+// Reaction function to likes or jeers user actions
+function reaction(type, post_url, elemID) {
+
+  // fetch the API
+  fetch(post_url, post_options)
+  // response is a RESTful "promise" on any successful fetch
+  .then(response => {
+    // check for response errors
+    if (response.status !== 200) {
+        error("Post API response failure: " + response.status)
+        return;  // api failure
+    }
+  })
+  // catch fetch errors (ie Nginx ACCESS to server blocked)
+  .catch(err => {
+    error(err + " " + post_url);
+  });
+  
+}
+
+// Something went wrong with actions or responses
+function error(err) {
+  // log as Error in console
+  console.error(err);
+  // append error to resultContainer
+  const tr = document.createElement("tr");
+  const h6 = document.createElement("h6");
+  const td = document.createElement("td");
+  td.innerHTML = err;
+  tr.appendChild(td);
+  resultContainer.appendChild(tr);
+}
+</script>
