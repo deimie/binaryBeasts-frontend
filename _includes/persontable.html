@@ -9,6 +9,8 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Pros</th>
+                <th>Cons</th>
                 </tr>
                 </thead>
                 <tbody id="result">
@@ -58,8 +60,13 @@ fetch(get_url, options)
         console.log(data);
         for (const row of data) {
           // make "tr element" for each "row of data"
+
           const tr = document.createElement("tr");
           
+          const id = document.createElement("td");
+            id.innerHTML = row.id;
+
+
           // td for quote cell
           const name = document.createElement("td");
             name.innerHTML = row.name; // add fetched data to innerHTML
@@ -69,13 +76,19 @@ fetch(get_url, options)
             email.innerHTML =  row.email;  // add fetched data to innerHTML
 
           // td for topic cell with onclick actions
-          const id = document.createElement("td");
-            id.innerHTML = row.id;
+
+          const pros = document.createElement("td");
+            pros.innerHTML = row.pros;
+
+          const cons = document.createElement("td");
+            cons.innerHTML = row.cons;
           // this builds ALL td's (cells) into tr (row) element
           // this builds ALL td's (cells) into tr (row) element
           tr.appendChild(id);
           tr.appendChild(name);
           tr.appendChild(email);
+          tr.appendChild(pros);
+          tr.appendChild(cons);
 
           // this adds all the tr (row) work above to the HTML "result" container
           resultContainer.appendChild(tr);

@@ -6,10 +6,14 @@
         <div class="col-lg-12 text-center">
           <div class=card>
             <img src="/img/profilePic.png">
-            <h3 class="cardHead" id="name">Chris</h3>
-            <h3 class="cardText cardBio"> Computer Science Major </h3>
-            <h3 class="cardText cardTraits"> Bird Watching, Lasagna, Overwatch </h3>
-            <h3 class="cardText cardTraits"> Showers, Going Outside, Lettuce</h3>
+            <table class="cardText" style="margin:auto">
+              <thead>
+                <tr>
+                  <th> </th>
+                </tr>
+                </thead>
+              <tbody id="result"></tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -25,86 +29,141 @@
 
   }
   .card {
-    background-color: #{{ site.color.primary }}; 
     width: 55%; 
     margin: auto;
     padding: 13px;
-    height: 650px;
+    height: auto;
     border-radius:10px;
-    text-align: left;
+    text-align: center;
+    background-color: #{{ site.color.primary }}; 
   }
 
-  .cardText {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  h4 {
+    color: #1B4F11;
+    font-weight: normal;
+  }
+
+  h3 {
+  }
+
+  h5 {
+    color: #fff;
     font-weight: normal;
     text-transform:none;
-  }
-  .cardHead {
-    color: #1B4F11;
-  }
-  
-  .cardBio {
-    color:#969696;
-  }
-
-  .cardTraits {
-    color: #000000;
   }
 </style>
 
 <script>
-  // prepare HTML result container for new output
+
   const resultContainer = document.getElementById("result");
 
-  // prepare fetch options
-  //const url = "https://binarybeasts.nighthawkcoding.ml/api/person/";
-  const url = "https://localhost:8085/api/person"
+  const url = "http://localhost:8197/api/person/all";
+  const get_url = url + "/";
+
+    // prepare fetch GET options
   const options = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
     cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'omit', // include, *same-origin, omit
+    credentials: 'same-origin', // include, same-origin, omit
     headers: {
       'Content-Type': 'application/json'
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
   };
+  // prepare fetch PUT options, clones with JS Spread Operator (...)
+  const post_options = {...options,
+    method: 'POST',
+    mode: 'cors', // no-cors, *cors, same-origin
+  }; // clones and replaces method
 
   // fetch the API
-  fetch(url, options)
+// fetch the API
+fetch(get_url, options)
     // response is a RESTful "promise" on any successful fetch
     .then(response => {
       // check for response errors
       if (response.status !== 200) {
-          const errorMsg = 'Database response error: ' + response.status;
-          console.log(errorMsg);
-          const tr = document.createElement("tr");
-          const td = document.createElement("td");
-          td.innerHTML = errorMsg;
-          tr.appendChild(td);
-          resultContainer.appendChild(tr);
+          error('GET API response failure: ' + response.status);
           return;
       }
-      // valid response will have json data
+      // valid response will have JSON data
       response.json().then(data => {
           console.log(data);
-          
-          const name = document.getElementById("name").value;
-          
-          // data is specific to the API
-          name.innerHTML = row.name; 
+          const row = data[Math.floor(Math.random()*data.length)];
+            // make "tr element" for each "row of data"
+            const tr1 = document.createElement("tr");
+            const tr2 = document.createElement("tr");
+            const tr3 = document.createElement("tr");
+            const tr4 = document.createElement("tr");
+            
+            // td for quote cell
+            const name = document.createElement("h3");
+              name.innerHTML = row.name; // add fetched data to innerHTML
 
-          // add HTML to container
-          resultContainer.appendChild(name);
+            // td for author cell with onclick actions
+            const traits = document.createElement("h4");
+              traits.innerHTML = row.traits;  // add fetched data to innerHTML
+
+            // td for topic cell with onclick actions
+            const pros = document.createElement("h5");
+              pros.innerHTML = "Pros: " + row.pros;
+
+            const cons = document.createElement("h5");
+              cons.innerHTML = "Cons: " + row.cons;
+            // this builds ALL td's (cells) into tr (row) element
+            tr1.appendChild(name);
+            tr2.appendChild(traits);
+            tr3.appendChild(pros);
+            tr4.appendChild(cons);
+
+            // this adds all the tr (row) work above to the HTML "result" container
+            resultContainer.appendChild(tr1);
+            resultContainer.appendChild(tr2);
+            resultContainer.appendChild(tr3);
+            resultContainer.appendChild(tr4);
+          
       })
   })
-  // catch fetch errors (ie ACCESS to server blocked)
+  // catch fetch errors (ie Nginx ACCESS to server blocked)
   .catch(err => {
+    error(err + ": " + get_url);
+  });
+
+  // Reaction function to likes or jeers user actions
+  function reaction(type, post_url, elemID) {
+
+    // fetch the API
+    fetch(post_url, post_options)
+    // response is a RESTful "promise" on any successful fetch
+    .then(response => {
+      // check for response errors
+      if (response.status !== 200) {
+          error("Post API response failure: " + response.status)
+          return;  // api failure
+      }
+    })
+    // catch fetch errors (ie Nginx ACCESS to server blocked)
+    .catch(err => {
+      error(err + " " + post_url);
+    });
+    
+  }
+
+  // Something went wrong with actions or responses
+  function error(err) {
+    // log as Error in console
     console.error(err);
+    // append error to resultContainer
     const tr = document.createElement("tr");
+    const h3 = document.createElement("h3");
+    const h4 = document.createElement("h4");
+    const h5 = document.createElement("h5");
+    const h6 = document.createElement("h6");
     const td = document.createElement("td");
     td.innerHTML = err;
     tr.appendChild(td);
     resultContainer.appendChild(tr);
-  });
+  }
+
 </script>
